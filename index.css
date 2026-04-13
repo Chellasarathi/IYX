@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/*hero Section*/
+.hero-home {
+  padding-top: 10%;
+  min-height: 100vh;
+  gap:10px;
+}
+.hero-coin-animation {
+  width: 250px;
+  height: 250px;
+}
+
+
+
+/* ===== ECOSYSTEM SECTION ===== */
+
+.ecosystem {
+  position: relative;
+  color: white;
+  padding: 100px 20px;
+  overflow: hidden;
+}
+
+
+.ecosystem-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+
+/*==========================================*/
+/*============== floating css ==============*/
+/*==========================================*/
+
+@keyframes revealCoin {
+  0% {
+    opacity: 0;
+    transform: translateY(80px) scale(0.8) rotate(-8deg);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.05) rotate(2deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1) rotate(0deg);
+  }
+}
+
+/* Apply reveal */
+.coin {
+  animation: revealCoin 1.2s ease-out forwards,
+             glowPulse 3s ease-in-out infinite;
+}
+
+
+
+
+
+
+/*==========================================*/
+/*============== Products css ==============*/
+/*==========================================*/
+
+
+.products-section {
+
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* HEADER */
+.products-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.products-section-heading {
+  font-size: 48px;
+}
+
+.products-header p {
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.arrow {
+  color: #f5a623;
+  font-size: 18px;
+}
+
+/* GRID */
+.products-cards {
+  
+}
+
+/* CARD */
+.product-card {
+  height: 100px;
+  width: 180px;
+  background: #0b0b0f;
+  border: 1px solid #1D1C32;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: 0.4s ease;
+}
+
+/* HOVER CARD */
+.product-card:hover {
+  transform: translateY(-6px) scale(1.05);
+  
+}
+
+/* LOGO */
+.product-card img {
+  max-width: 75%;
+  transition: 0.4s ease;
+  filter: brightness(0) invert(1);
+}
+
+.product-card:hover img {
+  transform: scale(1.1);
+}
+
+
+.glow {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.4s ease;
+  filter: blur(45px); 
+}
+
+
+
+/* 🔥 BOTTOM-RIGHT GLOW */
+.glow-bottom {
+  bottom: -60%;
+  right: -60%;
+  background: radial-gradient(
+    circle,
+    rgba(91, 87, 234, 1) 0%,
+    rgba(187, 99, 255, 0.25) 30%,
+    transparent 40%
+  );
+}
+
+/* ✨ HOVER GLOW */
+.product-card:hover .glow {
+  opacity: 1;
+}
+
+/* subtle movement */
+.product-card:hover .glow-top {
+  transform: translate(15%, 15%) scale(1.2);
+}
+
+.product-card:hover .glow-bottom {
+  transform: translate(-15%, -35%) scale(1.2);
+}
+
+/* SLIDER CONTAINER */
+.products-slider {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 40px;
+}
+
+/* TRACK */
+.products-track {
+  padding-top: 1%;
+  grid-template-columns: repeat(7, 1fr);
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scrollSlider 10s linear infinite;
+}
+
+/* PAUSE ON HOVER (premium feel) */
+.products-slider:hover .products-track {
+  animation-play-state: paused;
+}
+
+/* ANIMATION */
+@keyframes scrollSlider {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
